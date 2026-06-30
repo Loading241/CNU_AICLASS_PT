@@ -75,6 +75,59 @@
     </section>
   </main>
 
+    <form id="contactForm">
+  <input type="text" id="visitorName" placeholder="이름" required>
+  <input type="email" id="visitorEmail" placeholder="이메일" required>
+  <textarea id="visitorMessage" placeholder="AI 에이전트에게 할 질문을 입력하세요" required></textarea>
+ 
+  <button type="submit">AI 에이전트에게 질문하기</button>
+</form>
+
+<div id="responseMessage" style="display:none; margin-top: 15px; font-weight: bold;"></div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault(); // 폼 제출 시 페이지가 새로고침되는 것을 막습니다.
+
+  const name = document.getElementById('visitorName').value;
+  const email = document.getElementById('visitorEmail').value;
+  const message = document.getElementById('visitorMessage').value;
+  const responseDiv = document.getElementById('responseMessage');
+
+  responseDiv.style.display = 'block';
+  responseDiv.style.color = 'blue';
+  responseDiv.innerText = 'AI 에이전트가 질문을 분석 중입니다... 잠시만 기다려주세요.';
+
+  // ⚠️ 중요: 아래 URL을 Make.com에서 발급받은 Custom Webhook URL로 교체하세요!
+  const makeWebhookUrl = 'https://hook.us2.make.com/1r8l2z6tl3vhml5d9o6g3v7d3823gw3o';
+
+  try {
+    const response = await fetch(makeWebhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        visitor_name: name,
+        visitor_email: email,
+        visitor_message: message
+      })
+    });
+
+    if (response.ok) {
+      responseDiv.style.color = 'green';
+      responseDiv.innerText = '✅ 질문이 성공적으로 접수되었습니다! 입력하신 메일로 AI의 답변이 곧 발송됩니다.';
+      document.getElementById('contactForm').reset(); // 폼 초기화
+    } else {
+      throw new Error('서버 응답 실패');
+    }
+  } catch (error) {
+    responseDiv.style.color = 'red';
+    responseDiv.innerText = '❌ 접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
+  }
+});
+</script> 
+  
   <footer>
     <p>&copy; 2026 Woo. All rights reserved.</p>
   </footer>
