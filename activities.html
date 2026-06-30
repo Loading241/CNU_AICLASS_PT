@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio | Activities</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">MyPortfolio</a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Introduction</a></li>
+        <li><a href="activities.html" class="active">Activities</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header section">
+      <h1>Activity List</h1>
+      <p>
+        Here are some projects, learning activities, and experiences I have worked on.
+      </p>
+    </section>
+
+    <section class="section activity-section">
+      <div class="activity-grid">
+        <article class="activity-card">
+          <span class="tag">Project</span>
+          <h2>Personal Portfolio Website</h2>
+          <p>
+            Built a responsive portfolio website using HTML, CSS, and JavaScript.
+          </p>
+          <button class="details-btn">View Details</button>
+        </article>
+
+        <article class="activity-card">
+          <span class="tag">Learning</span>
+          <h2>JavaScript Practice</h2>
+          <p>
+            Practiced DOM manipulation, events, functions, and simple interactive UI.
+          </p>
+          <button class="details-btn">View Details</button>
+        </article>
+
+        <article class="activity-card">
+          <span class="tag">Design</span>
+          <h2>Responsive UI Design</h2>
+          <p>
+            Studied layouts, cards, spacing, colors, and mobile-friendly design.
+          </p>
+          <button class="details-btn">View Details</button>
+        </article>
+
+        <article class="activity-card">
+          <span class="tag">Club</span>
+          <h2>Team Activity</h2>
+          <p>
+            Participated in a team activity and learned collaboration skills.
+          </p>
+          <button class="details-btn">View Details</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Your Name. All rights reserved.</p>
+  </footer>
+
+  <div class="toast" id="toast">Activity details clicked!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
