@@ -22,7 +22,7 @@ detailButtons.forEach((button) => {
   });
 });
 
-const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/여기에_본인_URL";
+const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/1r8l2z6tl3vhml5d9o6g3v7d3823gw3o";
 
 const form = document.getElementById('contactForm');
 if (form) {
